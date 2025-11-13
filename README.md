@@ -1,86 +1,68 @@
-# 4.Execution_of_NetworkCommands
-# Developed by : N V Chetan Satwik
-# Reg no : 212224240100
-## AIM :Use of Network commands in Real Time environment
-## Software : Command Prompt And Network Protocol Analyzer
-## Procedure: To do this EXPERIMENT- follows these steps:
-<BR>
-In this EXPERIMENT- students have to understand basic networking commands e.g cpdump, netstat, ifconfig, nslookup ,traceroute and also Capture ping and traceroute PDUs using a network protocol analyzer 
-<BR>
-All commands related to Network configuration which includes how to switch to privilege mode
-<BR>
-and normal mode and how to configure router interface and how to save this configuration to
-<BR>
-flash memory or permanent memory.
-<BR>
-This commands includes
-<BR>
-• Configuring the Router commands
-<BR>
-• General Commands to configure network
-<BR>
-• Privileged Mode commands of a router 
-<BR>
-• Router Processes & Statistics
-<BR>
-• IP Commands
-<BR>
-• Other IP Commands e.g. show ip route etc.
-<BR>
+# 4. Execution of Network Commands
 
-## Program:
-client
-```
-import socket
+## AIM  
+Use of network commands in a real-time environment.
 
-s = socket.socket()
-s.connect(('localhost', 8000))
+## Software  
+- Command Prompt  
+- Network Protocol Analyzer
 
-while True:
-    ip = input("Enter the website you want to ping (or type 'exit' to quit): ")
-    s.send(ip.encode('utf-8'))
-    if ip.lower() == 'exit':
-        break
-    print(s.recv(4096).decode('utf-8'))
+## Procedure  
+To do this experiment, follow these steps:
 
-s.close()
-```
-server
-```
-import socket
-import os
+Students have to understand basic networking commands such as:
 
-s = socket.socket()
-s.bind(('localhost', 8000))
-s.listen(5)
-print("Server listening on port 8000...")
+- `tcpdump`
+- `netstat`
+- `ifconfig`
+- `nslookup`
+- `traceroute`
 
-c, addr = s.accept()
-print(f"Connection from {addr}")
+Additionally, capture **ping** and **traceroute** PDUs using a **network protocol analyzer**.
 
-while True:
-    hostname = c.recv(1024).decode('utf-8')
-    if not hostname or hostname.lower() == 'exit':
-        print("Client disconnected.")
-        break
+This includes all commands related to **network configuration**, such as:
 
-    try:
-        # Use system ping command
-        response = os.popen(f"ping -n 4 {hostname}").read()  # Use -c 4 for Linux/Mac
-        c.send(response.encode('utf-8'))
-    except Exception as e:
-        c.send(f"Ping failed: {e}".encode('utf-8'))
+- Switching to **privileged mode** and **normal mode**
+- Configuring **router interfaces**
+- Saving the configuration to **flash memory** or **permanent memory**
 
-c.close()
-```
+### This includes the following commands:
+
+- Configuring the router commands  
+- General commands to configure network  
+- Privileged mode commands of a router  
+- Router processes & statistics  
+- IP commands  
+- Other IP commands (e.g., `show ip route`)
+
+
+
+
 ## Output
 
-<img width="922" height="443" alt="image" src="https://github.com/user-attachments/assets/1da31aaf-1b04-4439-a775-7f00b53d0df1" />
+
+<img width="1880" height="1133" alt="Screenshot 2025-11-13 161654" src="https://github.com/user-attachments/assets/fbad8bbb-cd0c-4556-97b3-e1136c8866d8" /> <br>
 
 
-<img width="902" height="425" alt="image" src="https://github.com/user-attachments/assets/e96d4034-83cc-4550-9b36-c6c600a99650" />
+<img width="1854" height="1103" alt="Screenshot 2025-11-13 161707" src="https://github.com/user-attachments/assets/a3a9249c-c9e8-46cc-a4fd-3b355fb61bbf" /><br>
+
+<img width="1689" height="877" alt="Screenshot 2025-11-13 161728" src="https://github.com/user-attachments/assets/cc166219-4358-4a10-a493-bfefc8776689" /><br>
 
 
+<img width="1919" height="1010" alt="Screenshot 2025-11-13 161737" src="https://github.com/user-attachments/assets/ae5f046d-cd99-444d-9d37-756bbfa245f7" /><br>
+
+
+<img width="994" height="192" alt="Screenshot 2025-11-13 161754" src="https://github.com/user-attachments/assets/ab5e036a-addc-4c60-a21e-43af83d68a0b" /><br>
+
+
+
+<img width="1339" height="795" alt="Screenshot 2025-11-13 161804" src="https://github.com/user-attachments/assets/a9d82bef-7412-4af4-b9be-da2d12265ba8" /><br>
+
+
+<img width="1301" height="817" alt="Screenshot 2025-11-13 161812" src="https://github.com/user-attachments/assets/0d71982d-5ab7-4277-8031-7307aae203d8" /><br>
+
+
+<img width="1671" height="881" alt="Screenshot 2025-11-13 161832" src="https://github.com/user-attachments/assets/11074c47-89ba-40d6-96df-5e97a499a9de" />
 
 
 ## Result
